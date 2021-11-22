@@ -9,7 +9,7 @@ import { RouterModule,Routes} from '@angular/router'; //라우터
 const router : Routes = [  //라우팅
   {path : '' , redirectTo:'first', pathMatch:'full'},
   {path : 'first' , component : FirstComponent},  
-  {path : 'second' , loadChildren: () => import('./third/third.module').then(m => m.ThirdModule) },
+  {path : 'second' ,component:SecondComponent},
   {path : '**' , redirectTo:'first', pathMatch:'full'}
 ]
 
@@ -21,7 +21,7 @@ const router : Routes = [  //라우팅
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(router,{enableTracing:false}),
+    RouterModule.forRoot(router,{enableTracing:false, useHash:false}),
   ],
   providers: [],
   bootstrap: [AppComponent]
